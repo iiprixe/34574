@@ -1,0 +1,43 @@
+local Material = loadstring(game:HttpGet("https://raw.githubusercontent.com/Kinlei/MaterialLua/master/Module.lua"))()
+
+local UI = Material.Load({
+     Title = "By Stormzzy#0880 : Pressure Wash Simulator",
+     Style = 1,
+     SizeX = 400,
+     SizeY = 185,
+     Theme = "Dark"
+})
+
+local Page = UI.New({
+    Title = "Main"
+})
+
+Page.Button({
+    Text = "Copy Discord Invite Link",
+    Callback = function()
+        setclipboard("https://discord.gg/j8j6ych3QE")
+local Notification = loadstring(game:HttpGet("https://raw.githubusercontent.com/Jxereas/UI-Libraries/main/notification_gui_library.lua", true))()
+wait()
+Notification.new("success", "Discord", "Discord Invite Copied To Clipboard") 
+wait(4)
+game:GetService("CoreGui").notifications:remove(true)
+end
+})
+
+Page.Button({
+    Text = "Get INF Cash",
+    Callback = function()
+--inf cash
+local args = { [1] = math.huge, [2] = math.huge } 
+game:GetService("ReplicatedStorage").Remotes.SurfaceCompleted:FireServer(unpack(args))
+end
+})
+Page.Button({
+    Text = "Get INF Tank",
+    Callback = function()
+--inf tank
+local ohBoolean1 = true
+
+game:GetService("ReplicatedStorage").Remotes.RefillRemote:FireServer(ohBoolean1)
+end
+})
